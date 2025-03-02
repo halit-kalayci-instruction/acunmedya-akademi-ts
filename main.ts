@@ -1,5 +1,5 @@
-import v4 from "./node_modules/uuid/dist/cjs/v4";
 //import * as uuid from "uuid";
+import v4 from "./node_modules/uuid/dist/cjs/v4";
 
 let abc:string = "halit";
 console.log(abc);
