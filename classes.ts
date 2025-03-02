@@ -50,3 +50,37 @@ const toplama = (...a:number[]) :number => {
 
 console.log(toplama(1,2,3))
 console.log(toplama(4,5,6,7,8,9))
+
+
+// Sınıflar
+
+//
+
+// this -> Classın kendisi
+class Car {
+    brand: string;
+    model: string;
+    year: number;
+
+    // constructor - yapıcı method
+    constructor(brand:string, model:string, year:number) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    start():void {
+        console.log(this.brand + " " + this.model + " " + " araç başlatılıyor..")
+        this.startEngine();
+    }
+
+    startEngine():void {
+        console.log("Motor başlatılıyor..")
+    }
+}
+
+let car1 = new Car("Hyundai","i20",2025); // new Car() => Car isimli classtan bir örnek üret.
+// car1.brand = "Hyundai"
+// car1.model = "i20"
+// car1.year = 2025
+car1.start();

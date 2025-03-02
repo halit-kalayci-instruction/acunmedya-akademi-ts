@@ -29,10 +29,39 @@ var selamla2 = function (isim) {
 selamla2("Ali");
 selamla2("Melih");
 selamla2();
-var toplama = function (a) {
+// Rest parameters
+var toplama = function () {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
     var result = 0;
-    a.forEach(function (number) { return result += number; });
+    a.forEach(function (number) { return result += number; }); // reduce
     return result;
 };
-console.log(toplama([1, 2, 3]));
-console.log(toplama([4, 5, 6, 7, 8, 9]));
+console.log(toplama(1, 2, 3));
+console.log(toplama(4, 5, 6, 7, 8, 9));
+// Sınıflar
+//
+// this -> Classın kendisi
+var Car = /** @class */ (function () {
+    // constructor - yapıcı method
+    function Car(brand, model, year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+    Car.prototype.start = function () {
+        console.log(this.brand + " " + this.model + " " + " araç başlatılıyor..");
+        this.startEngine();
+    };
+    Car.prototype.startEngine = function () {
+        console.log("Motor başlatılıyor..");
+    };
+    return Car;
+}());
+var car1 = new Car("Hyundai", "i20", 2025); // new Car() => Car isimli classtan bir örnek üret.
+// car1.brand = "Hyundai"
+// car1.model = "i20"
+// car1.year = 2025
+car1.start();
