@@ -58,29 +58,46 @@ console.log(toplama(4,5,6,7,8,9))
 
 // this -> Classın kendisi
 class Car {
-    brand: string;
-    model: string;
-    year: number;
-
+    // Access modifiers - Erişim belirleyiciler
+    private _brand: string; // Tüm her yerden erişilebilir 
+    private model: string; // Sadece class tarafından erişilebilir
+    protected year: number; // Inheritance ...
     // constructor - yapıcı method
     constructor(brand:string, model:string, year:number) {
-        this.brand = brand;
+        this._brand = brand;
         this.model = model;
         this.year = year;
     }
 
+
+    // Encapsulation
+    // getter-setter fonksiyonlar
+    get brand() {
+        return this._brand;
+    }
+    set brand(brand:string){
+        if(brand.length < 2)
+        {
+            console.log("Marka ismi 2 haneden küçük olamaz.")
+            return;
+        }
+        this._brand = brand;
+    }
+    //
+
     start():void {
-        console.log(this.brand + " " + this.model + " " + " araç başlatılıyor..")
+        console.log(this._brand + " " + this.model + " " + " araç başlatılıyor..")
         this.startEngine();
     }
-
     startEngine():void {
         console.log("Motor başlatılıyor..")
     }
-}
 
+}
 let car1 = new Car("Hyundai","i20",2025); // new Car() => Car isimli classtan bir örnek üret.
-// car1.brand = "Hyundai"
-// car1.model = "i20"
-// car1.year = 2025
+console.log(car1.brand)
+car1.brand = "T"
+//car1.brand = "Toyota" // #set etmek
+//car1.model = "i20"
+//car1.year = 2025
 car1.start();
