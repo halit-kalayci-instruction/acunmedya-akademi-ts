@@ -101,3 +101,5 @@ car1.brand = "T"
 //car1.model = "i20"
 //car1.year = 2025
 car1.start();
+
+// Typescript OOP -> Inheritance, Abstract Class, Interface 
